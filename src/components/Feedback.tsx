@@ -43,7 +43,7 @@ export default function StudentFeedback() {
   ];
 
   return (
-    <section className="relative w-full bg-[#111827] overflow-hidden py-16 md:py-24 border-t border-white/5">
+    <section id="feedback" className="relative w-full bg-[#111827] overflow-hidden py-16 md:py-24 border-t border-white/5">
       
       {/* 🏷️ HEADER SECTION: EXACT MATCH TO APKI SNAPSHOT */}
       <div className="text-center space-y-2 pb-12">

@@ -6,11 +6,11 @@ import { ArrowUpRight, Star, Terminal } from "lucide-react";
 export default function HeroSection() {
   return (
     <section
-       className=" width  relative min-h-fit lg:min-h-[70vh] 2xl:min-h-[50vh] 3xl:min-h-[60vh] bg-[#030303] overflow-hidden flex items-center selection:bg-blue-600 pb-4 pt-36 md:pt-40 lg:pt-28 lg:pb-18 2xl:pt-30 2xl:pb-20 3xl:pt-30 3xl:pb-20"
+      className=" width  relative min-h-fit lg:min-h-[70vh] 2xl:min-h-[50vh] 3xl:min-h-[60vh] bg-[#030303] overflow-hidden flex items-center selection:bg-blue-600 pb-4 pt-36 md:pt-40 lg:pt-28 lg:pb-18 2xl:pt-30 2xl:pb-20 3xl:pt-30 3xl:pb-20"
     >
       {/* 🌌 BACKGROUND GRADIENT LAYER */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/10 via-[#030303] to-[#030303] z-0" />
-      
+
       {/* Ambient Blue Glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-[-10%] right-[-5%] w-[300px] sm:w-[600px] xl:w-[900px] h-[300px] sm:h-[600px] xl:h-[900px] bg-blue-600/[0.06] blur-[130px] rounded-full" />
@@ -19,7 +19,7 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-7xl 2xl:max-w-[110rem] mx-auto px-6 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 2xl:gap-16 items-center">
 
-    {/* 📝 LEFT CONTENT */}
+          {/* 📝 LEFT CONTENT */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
 
             {/* Heading */}
@@ -82,18 +82,31 @@ export default function HeroSection() {
               </div> */}
             </div>
 
-      {/* 🚀 CUSTOM LIVE DESIGN ACCURATE BUTTONS & TRUST LAYOUT */}
+            {/* 🚀 CUSTOM LIVE DESIGN ACCURATE BUTTONS & TRUST LAYOUT */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 w-full sm:w-auto pt-6">
-              
+
               {/* PRIMARY SOLID YELLOW BUTTON */}
-              <Link href="#courses" className="w-full sm:w-auto">
+              {/* <Link className="w-full sm:w-auto">
                 <button
                   className="w-full sm:min-w-[220px] h-12 rounded-full bg-blue-900 hover:bg-white hover:text-blue-900 text-white font-black text-xs xl:text-sm tracking-wider uppercase flex items-center justify-center gap-2 transition-all duration-200 active:scale-95 cursor-pointer font-sans"
                 >
-                  Start Coding Now
+                 
                   <span className="font-bold text-base">→</span>
                 </button>
-              </Link>
+              </Link> */}
+           <Link href="#contact" className="w-full sm:w-auto">
+  <button
+    className="group relative overflow-hidden w-full sm:min-w-[160px] 2xl:min-w-[200px] h-[48px] 2xl:h-[56px] rounded-full bg-white text-black font-black text-[11px] 2xl:text-[13px] tracking-[2px] flex items-center justify-center gap-2 transition-all duration-500 shadow-lg active:scale-95"
+  >
+    {/* Blue to Cyan Hover Effect Gradient */}
+    <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full" />
+    
+    <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-500">
+      Enroll Now
+      <ArrowUpRight size={14} className="2xl:w-5 2xl:h-5 group-hover:rotate-45 transition-transform duration-300" />
+    </span>
+  </button>
+</Link>
 
               {/* SLIM VERTICAL DIVIDER & PAKISTAN EMBEDDED TRUST BADGE */}
               <div className="flex items-center gap-4 border-l border-white/10 pl-6 h-10 w-full sm:w-auto justify-center sm:justify-start">
@@ -139,7 +152,7 @@ export default function HeroSection() {
           <div className="lg:col-span-5 relative w-full flex items-center justify-center lg:justify-end mt-6 lg:mt-0">
             {/* Background Soft Glow Effect behind Image */}
             <div className="absolute inset-0 bg-blue-600/10 rounded-full blur-[80px] pointer-events-none" />
-            
+
             <div className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] xl:max-w-[480px] 2xl:max-w-[520px]">
               <Image
                 src="/hero-img.webp" // Make sure this file exists in your public folder

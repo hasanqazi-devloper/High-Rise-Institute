@@ -13,7 +13,6 @@ import Footer from '@/src/components/Footer';
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-white">
-      {/* Saare sections yahan line wise render honge */}
       <Navbar />
       <Hero />
       <About />
@@ -24,9 +23,7 @@ export default function Home() {
       <Feedback />
       <Comparison />
       <CTA />
-<Footer /> 
-      {/* 
-       */}
+     {/* <Footer />  */}
     </main>
   );
 }

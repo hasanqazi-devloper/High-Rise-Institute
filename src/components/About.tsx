@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ChevronRight, ArrowRight } from "lucide-react";
+import { ChevronRight, ArrowRight , ArrowUpRight } from "lucide-react";
 
 export default function About() {
   return (
@@ -79,33 +79,39 @@ export default function About() {
                 </p>
               </motion.div>
 
-              {/* Buttons Section - Updated to premium Blue-to-White Fill on Hover theme */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                viewport={{ once: true }}
-                className="flex flex-wrap items-center gap-6 pt-4"
-              >
-                <Link href="#methodology">
-                  {/* Updated Premium Blue Button with Smooth White background slider */}
-                  <button className="group relative overflow-hidden px-8 2xl:px-10 h-[48px] 2xl:h-[56px] rounded-full bg-blue-600 text-white font-black text-[11px] 2xl:text-[13px] uppercase tracking-widest transition-all duration-500 flex items-center gap-2 active:scale-95 shadow-lg">
-                    {/* Animated White background slider */}
-                    <span className="absolute inset-0 w-0 bg-white transform scale-x-0 group-hover:w-full transition-all duration-500 ease-out z-0 origin-left"></span>
-                    <span className="relative z-10 flex items-center gap-2 group-hover:text-blue-600 transition-colors duration-500">
-                      Our Methodology <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </button>
-                </Link>
+          {/* Buttons Container */}
+<div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 2xl:gap-5 w-full sm:w-auto pt-6 md:pt-8">
 
-                <Link
-                  href="#courses"
-                  className="group flex items-center gap-2 text-zinc-400 hover:text-white font-bold text-[11px] 2xl:text-[13px] uppercase tracking-[2px] transition-colors duration-300"
-                >
-                  Explore Courses
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </motion.div>
+  {/* 1. COLOR GRADIENT SLIDER BUTTON (Start Project) */}
+  <Link href="#contact" className="w-full sm:w-auto block">
+    <button
+      className="group relative overflow-hidden w-full sm:min-w-[160px] 2xl:min-w-[200px] h-[48px] 2xl:h-[56px] rounded-full bg-white text-black font-black text-[11px] 2xl:text-[13px] tracking-[2px] flex items-center justify-center gap-2 transition-all duration-500 shadow-lg active:scale-95 cursor-pointer"
+    >
+      {/* Blue to Cyan Slider Layer */}
+      <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full" />
+      
+      <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-500">
+        Enroll Now
+        <ArrowUpRight size={14} className="2xl:w-5 2xl:h-5 group-hover:rotate-45 transition-transform duration-300" />
+      </span>
+    </button>
+  </Link>
+
+  {/* 2. SIMPLE OUTLINE BUTTON (View Work) */}
+  <Link href="#feedback" className="w-full sm:w-auto block">
+    <button
+      className="group relative overflow-hidden w-full sm:min-w-[160px] 2xl:min-w-[200px] h-[48px] 2xl:h-[56px] rounded-full border border-white/20 bg-transparent text-zinc-400 font-bold text-[11px] 2xl:text-[13px] tracking-[2px] flex items-center justify-center gap-2 transition-all duration-500 active:scale-95 cursor-pointer hover:border-white hover:text-white"
+    >
+      {/* Simple Slide-up White Fill on Hover to look premium */}
+      <span className="absolute inset-0 w-full h-0 bg-white/5 transition-all duration-500 ease-out group-hover:h-full z-0 bottom-0" />
+      
+      <span className="relative z-10">
+        Feedback
+      </span>
+    </button>
+  </Link>
+  
+</div>
             </div>
           </div>
         </div>

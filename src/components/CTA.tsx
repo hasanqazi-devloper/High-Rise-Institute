@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export default function CTASection() {
   return (
-    <section className="relative w-full bg-[#111827] overflow-hidden py-20 md:py-28 border-t border-white/5">
+    <section id="contact" className="relative w-full bg-[#111827] overflow-hidden py-20 md:py-28 border-t border-white/5">
       {/* Premium Ambient Background Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] bg-blue-600/[0.04] blur-[120px] rounded-full pointer-events-none z-0" />
 
@@ -42,21 +42,26 @@ export default function CTASection() {
           </div>
 
           {/* Right Action Button Control Block */}
-          <div className="w-full sm:w-auto flex-shrink-0 flex justify-center">
-            <Link href="#enroll" className="w-full sm:w-auto relative group">
-              {/* Outer Glow Ring on Hover */}
-              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 opacity-20 group-hover:opacity-100 blur transition duration-300 pointer-events-none" />
-              
-              {/* Clean White Solid Pill Action Button Card */}
-              <button
-                className="relative w-full sm:min-w-[240px] h-14 rounded-xl bg-white hover:bg-[#FFC71E] text-neutral-950 hover:text-neutral-950 font-black text-xs md:text-sm tracking-widest uppercase flex items-center justify-center gap-3 transition-all duration-300 shadow-2xl active:scale-95 cursor-pointer"
-              >
-                SECURE YOUR SEAT
-                <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform stroke-[3px]" />
-              </button>
-            </Link>
-          </div>
-
+     <div className="w-full sm:w-auto flex-shrink-0 flex justify-center">
+  <Link href="#enroll" className="w-full sm:w-auto relative group block">
+    {/* 🟦 Outer Glow Ring on Hover - Aligned to Rounded Full */}
+    <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-70 blur-md transition duration-500 pointer-events-none" />
+    
+    {/* Premium Action Button Card */}
+    <button
+      className="group relative overflow-hidden w-full sm:min-w-[240px] h-14 rounded-full bg-white text-black font-black text-xs md:text-sm tracking-[2px] uppercase flex items-center justify-center gap-3 transition-all duration-500 shadow-2xl active:scale-95 cursor-pointer"
+    >
+      {/* Blue to Cyan Hover Effect Gradient Layer */}
+      <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full" />
+      
+      {/* Button Text & Icon Layer */}
+      <span className="relative z-10 flex items-center gap-3 group-hover:text-white transition-colors duration-500 ease-out">
+        SECURE YOUR SEAT
+        <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform duration-300 stroke-[3px]" />
+      </span>
+    </button>
+  </Link>
+</div>
         </div>
 
       </div>
