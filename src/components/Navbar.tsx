@@ -1,21 +1,37 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
-  // Mobile menu open/close karne ki state
+  // Mobile menu state
   const [isOpen, setIsOpen] = useState(false);
+  // Scroll detection state
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  // Navigation Links ka data
+  // Scroll position monitor karne ka hook
+  useEffect(() => {
+    const handleScrollState = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScrollState);
+    return () => window.removeEventListener('scroll', handleScrollState);
+  }, []);
+
+  // Links matrix matching template items
   const navLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
     { name: 'Courses', href: '#courses' },
+    { name: 'About Us', href: '#about' },
     { name: 'Feedback', href: '#feedback' },
-    { name: 'Contact US', href: '#contact' },
+    { name: 'Contact Us', href: '#contact' },
   ];
 
-  // Smooth scroll function
+  // Smooth click scroll mechanism
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const targetId = href.replace('#', '');
@@ -23,64 +39,78 @@ export default function Navbar() {
     if (elem) {
       elem.scrollIntoView({ behavior: 'smooth' });
     }
-    setIsOpen(false); // Mobile menu close karne ke liye
+    setIsOpen(false);
   };
 
   return (
-    // PREMIUM DARK GLASSY BASE (Matching with Hero Section Background)
-    <nav className="fixed top-0 left-0 w-full bg-[#0D1B2A]/80 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.5)] z-50 transition-all duration-300">
-      
-      {/* Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-        <div className="flex items-center justify-between h-16 md:h-20 2xl:h-24">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-out ${
+        isScrolled
+          ? 'bg-[#111827]/90 backdrop-blur-xl border-b border-white/5 shadow-[0_10px_30px_rgba(0,0,0,0.3)] py-3'
+          : 'bg-transparent border-b border-transparent py-5'
+      }`}
+    >
+      {/* Upper Ambient Horizon Glow line when transparent */}
+      <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFC71E]/20 to-transparent transition-opacity duration-500 ${isScrolled ? 'opacity-0' : 'opacity-100'}`} />
+
+      <div className="max-w-7xl xl:max-w-[85rem] 2xl:max-w-[95rem] mx-auto px-6 w-full">
+        <div className="flex items-center justify-between">
           
-          {/* LOGO SECTION (Clean White & Blue Accent) */}
+          {/* 🔥 BRAND LOGO BLOCK */}
           <div className="flex-shrink-0">
-            <a href="#home" className="text-xl md:text-2xl lg:text-3xl font-black text-white tracking-tight flex items-center gap-2">
-              <span className="text-blue-500">HRD</span> Institute
+            <a 
+              href="#home" 
+              className="text-xl md:text-2xl font-black text-white tracking-tighter uppercase font-sans flex items-center gap-1.5"
+            >
+              HRD <span className="text-blue-900">INSTITUTE</span>
             </a>
           </div>
 
-          {/* DESKTOP NAV ITEMS (Premium Silver links with Ice-Blue hover) */}
-          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8 2xl:space-x-12">
+          {/* 💎 DESKTOP NAVIGATION MATRIX */}
+          <div className="hidden lg:flex items-center space-x-8 xl:space-x-10">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleScroll(e, link.href)}
-                className="text-gray-300 hover:text-blue-400 font-semibold transition-all duration-200 lg:text-base xl:text-lg 2xl:text-xl tracking-wide"
+                className="relative text-xs xl:text-sm font-bold uppercase tracking-widest text-zinc-300 hover:text-white transition-colors duration-200 group py-2"
               >
                 {link.name}
+                {/* Underline Slide Animation Effect */}
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-900 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ease-out" />
               </a>
             ))}
           </div>
 
-          {/* DESKTOP CTA BUTTON (Blue with Smooth White Background Slide on Hover) */}
+          {/* ⚡ PREMIUM CTA ACTION BUTTON */}
           <div className="hidden lg:block">
-            <button className="group relative flex items-center justify-center font-extrabold uppercase transition-all duration-300 rounded-xl border-2 border-blue-600 bg-blue-600 text-white overflow-hidden lg:px-5 lg:py-2.5 lg:text-sm xl:px-6 xl:py-3 xl:text-base 2xl:px-8 2xl:py-4 2xl:text-lg shadow-lg cursor-pointer transform hover:-translate-y-0.5">
-              {/* Sliding background color panel */}
-              <span className="absolute inset-0 w-full h-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ease-out z-0"></span>
+            <button className="group relative flex items-center justify-center font-black text-xs uppercase tracking-wider transition-all duration-300 rounded-xl  bg-blue-900 text-white overflow-hidden px-6 py-3  cursor-pointer  hover:-translate-y-0.5 active:translate-y-0">
+              {/* Internal Background Sliding Accent Mask */}
+              <span className="absolute inset-0 w-full h-full bg-neutral-950 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ease-out z-0"></span>
               
-              {/* Button text */}
-              <span className="relative z-10 group-hover:text-blue-600 transition-colors duration-300">
-                Enroll Now
+              {/* Absolute Text Position Matrix */}
+              <span className="relative z-10 group-hover:text-white transition-colors duration-300 flex items-center gap-2">
+                Get Started
+                <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
               </span>
             </button>
           </div>
 
-          {/* MOBILE MENU BUTTON */}
+          {/* 📱 MOBILE HAMBURGER TOGGLE BUTTON */}
           <div className="flex lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="text-gray-300 hover:text-blue-400 focus:outline-none p-2 rounded-lg bg-white/5 border border-white/10"
+              className="text-zinc-300 hover:text-white focus:outline-none p-2.5 rounded-xl bg-white/[0.02] border border-white/10 backdrop-blur-md transition-all duration-200"
               aria-label="Toggle menu"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                 {isOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>
@@ -88,23 +118,26 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MOBILE NAV MENU (Dark Blue Premium Dropdown) */}
-      <div className={`lg:hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-screen opacity-100 border-t border-white/5 bg-[#0D1B2A]/95 backdrop-blur-2xl' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-        <div className="px-4 pt-3 pb-8 space-y-4 sm:px-6">
+      {/* 📱 MOBILE RESPONSIVE PANEL ACCORDION */}
+      <div 
+        className={`lg:hidden absolute top-full left-0 w-full transition-all duration-300 ease-out overflow-hidden border-b border-white/5 bg-[#111827]/98 backdrop-blur-2xl ${
+          isOpen ? 'max-h-screen opacity-100 py-6 px-6' : 'max-h-0 opacity-0 pointer-events-none'
+        }`}
+      >
+        <div className="space-y-4">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleScroll(e, link.href)}
-              className="block text-gray-300 hover:text-blue-400 font-semibold py-2.5 px-3 rounded-lg hover:bg-white/5 transition-all text-base sm:text-lg"
+              className="block text-sm font-black uppercase tracking-widest text-zinc-400 hover:text-white py-2 px-3 rounded-lg hover:bg-white/[0.02] transition-all"
             >
               {link.name}
             </a>
           ))}
           <div className="pt-4 border-t border-white/5">
-            {/* Mobile Fallback Button for easy touch integration */}
-            <button className="w-full bg-blue-600 hover:bg-white border-2 border-blue-600 text-white hover:text-blue-600 font-extrabold uppercase py-3.5 px-4 rounded-xl text-base sm:text-lg shadow-lg transition-all duration-300">
-              Enroll Now
+            <button className="w-full bg-[#FFC71E] hover:bg-transparent border border-[#FFC71E] text-neutral-950 hover:text-[#FFC71E] font-black text-xs uppercase tracking-wider py-4 px-4 rounded-xl shadow-md transition-all duration-300">
+              Get Started
             </button>
           </div>
         </div>

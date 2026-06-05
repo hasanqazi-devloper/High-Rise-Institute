@@ -2,13 +2,13 @@ import Navbar from '@/src/components/Navbar';
 import Hero from '@/src/components/Hero';
 import TrustedLogos from '@/src/components/TrustedLogos';
 import About from '@/src/components/About';
-// import Course from '@/components/Course';
-// import Reviews from '@/components/Reviews';
-// import Certificates from '@/components/Certificates';
-// import Feedback from '@/components/Feedback';
-// import Comparison from '@/components/Comparison';
-// import CTA from '@/components/CTA';
-// import Footer from '@/components/Footer';
+import Course from '@/src/components/Course';
+import Reviews from '@/src/components/Reviews';
+import Certificates from '@/src/components/Certificates';
+import Feedback from '@/src/components/Feedback';
+import Comparison from '@/src/components/Comparison';
+import CTA from '@/src/components/CTA';
+import Footer from '@/src/components/Footer';
 
 export default function Home() {
   return (
@@ -18,14 +18,15 @@ export default function Home() {
       <Hero />
       <About />
       <TrustedLogos />
-      {/* 
       <Course />
       <Reviews />
       <Certificates />
       <Feedback />
       <Comparison />
       <CTA />
-      <Footer />  */}
+<Footer /> 
+      {/* 
+       */}
     </main>
   );
 }

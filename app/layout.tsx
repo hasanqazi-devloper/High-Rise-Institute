@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import dynamic from "next/dynamic";
 import "./globals.css";
+
+// 📦 Dynamic Imports: Navbar aur Footer ki Server-Side Rendering (SSR) off kar di 
+// taake window scroll aur dynamic icons browser par smooth chalein aur hydration error na aaye.
+const Navbar = dynamic(() => import("@/src/components/Navbar"), { ssr: false });
+const Footer = dynamic(() => import("@/src/components/Footer"), { ssr: false });
 
 // Modern aur clean font load kar rahe hain website ke liye
 const jakartaSans = Plus_Jakarta_Sans({
@@ -23,9 +29,18 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${jakartaSans.variable} font-sans antialiased bg-white text-gray-900`}
+        className={`${jakartaSans.variable} font-sans antialiased bg-[#030303] text-white selection:bg-[#FFC71E]/30`}
       >
-        {children}
+        {/* Global Transparent Sticky Navbar Component */}
+        <Navbar />
+        
+        {/* Main Content Render Box (Aapke baqi saare sections isme load honge) */}
+        <main className="min-h-screen">
+          {children}
+        </main>
+
+        {/* Custom Premium Multan Base Footer Component */}
+        <Footer />
       </body>
     </html>
   );
