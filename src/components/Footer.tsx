@@ -40,15 +40,6 @@ export default function Footer() {
                 <p className="text-[9px] text-zinc-500 font-extrabold uppercase tracking-widest mt-0.5">HEADCAMPUS & LIVE PIPELINES</p>
               </div>
             </div>
-
-            {/* Global Outreach Flag Indicators */}
-            {/* <div className="space-y-2">
-              <h5 className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">STUDENTS LEARNING FROM:</h5>
-              <div className="flex items-center gap-2.5 text-lg select-none opacity-90">
-                <span>🇵🇰</span> <span>🇬🇧</span> <span>🇦🇪</span> <span>🇸🇦</span> <span>🇨🇦</span> <span>🇲🇾</span>
-                <span className="text-[10px] text-zinc-500 font-black tracking-tight ml-1">+ More</span>
-              </div>
-            </div> */}
           </div>
 
           {/* COLUMN 2: ACADEMY QUICK DIRECT LINKS (2 COLS) */}
@@ -59,8 +50,8 @@ export default function Footer() {
             <ul className="space-y-3 text-xs font-bold text-zinc-400">
               <li><Link href="#about" className="hover:text-white transition-colors block">About Us</Link></li>
               <li><Link href="#courses" className="hover:text-white transition-colors block">Master Courses</Link></li>
-              <li><Link href="#faqs" className="hover:text-white transition-colors block">Help & FAQs</Link></li>
-              <li><Link href="#verify" className="hover:text-blue-400 transition-colors block text-blue-500">Verify Certificate</Link></li>
+              {/* <li><Link href="#faqs" className="hover:text-white transition-colors block">Help & FAQs</Link></li> */}
+              <li><Link href="#certificate" className="hover:text-white transition-colors block">Verify Certificate</Link></li>
             </ul>
           </div>
 
@@ -70,17 +61,23 @@ export default function Footer() {
               LEGAL INFO
             </h4>
             <ul className="space-y-3 text-xs font-bold text-zinc-400">
-              <li><Link href="#privacy" className="hover:text-white transition-colors block">Privacy Policy</Link></li>
-              <li><Link href="#terms" className="hover:text-white transition-colors block">Terms of Service</Link></li>
-              <li><Link href="#refund" className="hover:text-white transition-colors block">Refund Policy</Link></li>
-              {/* <li><Link href="#hackathon" className="hover:text-[#FFC71E] transition-colors block text-[#FFC71E]">Hackathon Rules</Link></li> */}
+              {/* 🔗 DIRECT ROUTES CONNECTED */}
+              <li>
+                <Link href="/privacy-policy" className="hover:text-white transition-colors block">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-white transition-colors block">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="/refund-policy" className="hover:text-white transition-colors block">
+                  Refund Policy
+                </Link>
+              </li>
             </ul>
-
-            {/* SECP Verification Code Tag */}
-            {/* <div className="pt-3 border-t border-white/[0.04] space-y-1">
-              <span className="text-[9px] font-black text-zinc-600 uppercase tracking-wider block">SECP REGISTRATION:</span>
-              <span className="text-[11px] font-mono font-black text-zinc-400 tracking-widest">NO. 0290165</span>
-            </div> */}
           </div>
 
           {/* COLUMN 4: HELP DESK SUPPORT CENTER (3 COLS) */}
@@ -91,7 +88,7 @@ export default function Footer() {
 
             {/* Native WhatsApp Interaction Pill Widget Container */}
             <a
-              href="https://wa.me/923276381819"
+              href="https://wa.me/923002777587"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3.5 bg-gradient-to-br from-white/[0.01] to-transparent hover:from-white/[0.03] border border-white/10 rounded-xl p-3.5 transition-all duration-300 group shadow-lg"
@@ -104,7 +101,7 @@ export default function Footer() {
               <div className="leading-tight">
                 <h5 className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">OFFICIAL HELPDESK</h5>
                 <p className="text-sm font-mono font-black text-white tracking-wide mt-0.5 group-hover:text-emerald-400 transition-colors">
-                  +92 327-6381819
+                  +92 300-2777587
                 </p>
               </div>
             </a>
@@ -129,11 +126,11 @@ export default function Footer() {
         </div>
 
         {/* 📜 BOTTOM SUB-FOOTER CONTROL BAR */}
-        <div className="flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-4 text-[10px] font-bold uppercase tracking-wider text-zinc-500 font-mono">
-          <p>© 2026 SKILLS EDUCATION TRAINING INSTITUTE (SMC-PVT) LTD.</p>
-          <p className="flex items-center gap-1">
+        <div className=" items-center justify-between text-center sm:text-left gap-4 text-[10px] font-bold uppercase  text-white font-mono">
+          <p>© 2026 High Rise Digital INSTITUTE LTD.</p>
+          {/* <p className="flex items-center gap-1">
             DEVELOPED BY <span className="text-white font-black">UMAIR FAROOQ</span> <span className="text-[#FFC71E] animate-pulse">⚡</span>
-          </p>
+          </p> */}
         </div>
 
       </div>

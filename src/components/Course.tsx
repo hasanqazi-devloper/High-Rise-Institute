@@ -31,7 +31,7 @@ export default function CoursesSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-4">
 
           {/* LEFT COLUMN: WHAT YOU WILL MASTER INFO BOX */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-6 bg-white/[0.01] border border-white/5 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
+          <div className="lg:col-span-5 flex flex-col justify-between space-y-6 bg-[#111827] border border-white/5 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-extrabold text-[10px] tracking-widest uppercase">
                 <Sparkles size={10} /> Ultimate Combo Track

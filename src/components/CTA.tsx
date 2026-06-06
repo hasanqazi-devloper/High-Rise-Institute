@@ -12,7 +12,9 @@ export default function CTASection() {
       <div className="relative z-10 max-w-7xl xl:max-w-[85rem] mx-auto px-6 w-full">
         
         {/* Inner Content Grid Box Layout */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 bg-gradient-to-br from-[#09090b] to-[#030303] border border-white/10 rounded-3xl p-8 md:p-12 xl:p-16 shadow-[0_30px_70px_rgba(0,0,0,0.9)]">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 
+   bg-gradient-to-bl from-[#0971A6] via-[#054f7a] to-[#021526]
+        border border-white/10 rounded-3xl p-8 md:p-12 xl:p-16 ">
           
           {/* Left Block Text Messaging Details */}
           <div className="space-y-4 max-w-2xl text-center lg:text-left flex flex-col items-center lg:items-start">

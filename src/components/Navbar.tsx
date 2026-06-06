@@ -142,7 +142,7 @@ export default function Navbar() {
     { name: "Courses", href: "#courses" },
     { name: "Feedback", href: "#feedback" },
     ...dynamicLinks,
-    { name: "Contact Us", href: "#contact" },
+    { name: "Contact Us", href: "/contact" },
   ];
 
   return (
@@ -154,10 +154,10 @@ export default function Navbar() {
           animate={{ y: 0, opacity: 1 }}
           className={`relative flex items-center justify-between transition-all duration-500 ease-in-out mx-auto ${isScrolled ? "rounded-full px-6 md:px-8 py-2 bg-[#111827]/90 backdrop-blur-xl border border-white/10 shadow-2xl w-full max-w-[95%] lg:max-w-[1200px]" : "rounded-none px-0 py-4 bg-transparent border-transparent w-full"}`}
         >
-          {/* 🟦 Upper Ambient Horizon Glow Line - Swapped Yellow to Blue */}
+          {/* 🟦 Upper Ambient Horizon Glow Line */}
           <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent transition-opacity duration-500 ${isScrolled ? "opacity-0 rounded-full" : "opacity-100"}`} />
 
-          {/* 🔥 BRAND LOGO BLOCK - Updated text accent color to Blue */}
+          {/* 🔥 BRAND LOGO BLOCK */}
           <Link href="#home" onClick={(e) => handleScrollToSection(e, "#home")} className="flex items-center z-50 shrink-0 text-lg md:text-xl font-black text-white tracking-tighter uppercase font-sans">
             HRD <span className="text-blue-500 ml-1">INSTITUTE</span>
           </Link>
@@ -198,46 +198,47 @@ export default function Navbar() {
                   className={`relative px-3 py-1.5 text-[10px] xl:text-[11px] font-bold uppercase tracking-widest transition-all group ${isActive ? "text-blue-500" : "text-zinc-300 hover:text-white"}`}
                 >
                   {link.name}
-                  {/* 🟦 Hover Underline Effect - Changed to Blue */}
                   <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ease-out" />
                 </Link>
               );
             })}
           </div>
 
-          {/* ⚡ PREMIUM CTA ACTION BUTTON - Changed from Yellow structure to Premium Blue layout */}
-      <div className="flex items-center gap-4 z-50 shrink-0">
-  {/* ⚡ DESKTOP PREMIUM CTA BUTTON (Enroll Now Style Upgrade) */}
-  <button 
-    onClick={() => setIsProposalOpen(true)} 
-    className="group relative overflow-hidden hidden lg:flex items-center justify-center font-black text-[11px] uppercase tracking-[2px] h-[44px] px-6 rounded-full bg-white text-black shadow-lg transition-all duration-500 ease-out active:scale-95 cursor-pointer"
-  >
-    {/* Blue to Cyan Hover Effect Gradient Layer */}
-    <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full" />
-    
-    {/* Button Text & Icon Layer */}
-    <span className="relative z-10 flex items-center gap-1.5 group-hover:text-white transition-colors duration-500 ease-out">
-      Get Started
-      <svg 
-        className="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-0.5" 
-        fill="none" 
-        viewBox="0 0 24 24" 
-        stroke="currentColor" 
-        strokeWidth="3"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-      </svg>
-    </span>
-  </button>
+          {/* ⚡ LMS PORTAL LOGIN LINK ACTION */}
+          <div className="flex items-center gap-4 z-50 shrink-0">
+            {/* ⚡ DESKTOP PREMIUM LMS LOGIN BUTTON */}
+            <a 
+              href="https://lms.highrisedigital.io" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden hidden lg:flex items-center justify-center font-black text-[11px] uppercase tracking-[2px] h-[44px] px-6 rounded-full bg-white text-black shadow-lg transition-all duration-500 ease-out active:scale-95 cursor-pointer no-underline"
+            >
+              {/* Blue to Cyan Hover Effect Gradient Layer */}
+              <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full" />
+              
+              {/* Button Text & Icon Layer */}
+              <span className="relative z-10 flex items-center gap-1.5 group-hover:text-white transition-colors duration-500 ease-out">
+                Login
+                <svg 
+                  className="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-0.5" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor" 
+                  strokeWidth="3"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </span>
+            </a>
 
-  {/* 📱 MOBILE HAMBURGER BUTTON (Kept Clean & Intact) */}
-  <button 
-    onClick={() => setIsOpen(!isOpen)} 
-    className="lg:hidden text-white p-2 focus:outline-none rounded-xl bg-white/[0.02] border border-white/10 backdrop-blur-md"
-  >
-    {isOpen ? <X size={20} /> : <Menu size={20} />}
-  </button>
-</div>
+            {/* 📱 MOBILE HAMBURGER BUTTON */}
+            <button 
+              onClick={() => setIsOpen(!isOpen)} 
+              className="lg:hidden text-white p-2 focus:outline-none rounded-xl bg-white/[0.02] border border-white/10 backdrop-blur-md"
+            >
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
 
           {/* MOBILE RESPONSIVE ACCORDION */}
           <AnimatePresence>
@@ -268,10 +269,16 @@ export default function Navbar() {
                   );
                 })}
                 <div className="pt-4 px-4">
-                  {/* 🟦 Mobile CTA Button - Blue variant */}
-                  <button onClick={() => { setIsOpen(false); setIsProposalOpen(true); }} className="w-full bg-blue-600 border border-blue-600 text-white font-black text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-blue-600/10">
-                    Get Started
-                  </button>
+                  {/* 📱 MOBILE LOGIN ACTION BUTTON LINKED TO LMS */}
+                  <a 
+                    href="https://lms.highrisedigital.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
+                    className="block text-center w-full bg-blue-600 border border-blue-600 text-white font-black text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-blue-600/10 no-underline"
+                  >
+                    Login
+                  </a>
                 </div>
               </motion.div>
             )}
@@ -342,7 +349,6 @@ export default function Navbar() {
                   )}
                 </AnimatePresence>
                 
-                {/* 🟦 Modal Action Button - Shifted to Deep Blue Variant */}
                 <button 
                   type="submit" 
                   disabled={modalStatus.loading}

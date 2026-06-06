@@ -13,6 +13,9 @@ const jakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "HRD Institute | Degree Se Skills Tak",
   description: "Sirf degree kafi nahi! Master the skills that global companies demand. Zero theory, Full code.",
+  icons: {
+    icon: "/icon.png"
+  }
 };
 
 export default function RootLayout({
